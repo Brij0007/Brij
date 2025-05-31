@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BrijRaj - Portfolio</title>
+  <style>
+    :root {
+      --bg: #f0f4f8;
+      --text: #1e293b;
+      --primary: #2563eb;
+      --secondary: #475569;
+      --accent: #3b82f6;
+      --card-bg: #ffffff;
+    }
+
+    body.dark {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --primary: #1e40af;
+      --secondary: #94a3b8;
+      --accent: #60a5fa;
+      --card-bg: #1e293b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 3em 1em 2em;
+      text-align: center;
+      position: relative;
+    }
+
+    .header-buttons {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      display: flex;
+      gap: 0.5em;
+    }
+
+    .header-buttons button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .typewriter {
+      display: inline-block;
+      border-right: 3px solid white;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-top: 0.5em;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    section {
+      max-width: 800px;
+      background-color: var(--card-bg);
+      margin: 2em auto;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 0.5em;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.4em;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1.2em;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .socials {
+      display: flex;
+      gap: 1em;
+      margin-top: 1em;
+    }
+
+    .resume-button {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      background-color: var(--primary);
+      color: white;
+      padding: 2em;
+      margin-top: 2em;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      padding: 2em;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      color: var(--text);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 1em;
+      text-align: center;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 0.8em;
+      margin: 0.5em 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .modal-content button {
+      width: 100%;
+      padding: 0.8em;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-modal {
+      text-align: center;
+      margin-top: 1em;
+      color: var(--accent);
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .typewriter {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-buttons">
+    <button onclick="showLogin()">Login</button>
+    <button onclick="toggleDark()">Toggle Dark</button>
+  </div>
+  <h3>CREATED BY</h3>
+  <div class="typewriter">BRIJ RAJ PANDEY</div>
+  <p>Welcome to my professional portfolio site</p>
+  <a href="#" class="resume-button">Download Resume</a>
+</header>
+
+<section><h2>About Me</h2><p>I'm Brij Raj Pandey, a Class 9 student passionate about computer science...</p></section>
+
+<section><h2>Skills</h2><ul><li>HTML, CSS</li><li>JavaScript</li><li>Python</li><li>Video Editing</li><li>Git & GitHub</li></ul></section>
+
+<section><h2>Projects</h2><ul><li>Portfolio Website</li><li>Calculator</li><li>Python CLI Quiz</li></ul></section>
+
+<section><h2>Blog</h2><ul><li><strong>Why I Love Coding</strong></li><li><strong>Class 9 Journey</strong></li><li><strong>Top Free Resources</strong></li></ul></section>
+
+<section><h2>My YouTube</h2><p><a href="https://youtube.com/@brijrajpandey-n3g" target="_blank">Visit Channel</a></p></section>
+
+<section><h2>Contact</h2>
+<ul><li>Email: brijraj7153@gmail.com</li><li>WhatsApp: +91 7525081020</li></ul>
+<div class="socials">
+  <a href="https://youtube.com/@brijrajpandey-n3g" target="_blank">▶</a>
+  <a href="mailto:brijraj7153@gmail.com">✉</a>
+  <a href="https://wa.me/917525081020" target="_blank">💬</a>
+</div></section>
+
+<section id="leaveReview">
+  <h2>Leave a Review</h2>
+  <form id="reviewForm">
+    <textarea id="reviewText" placeholder="Write your review here..." rows="4" style="width:100%; padding:1em; border-radius:8px; border:1px solid #ccc; font-size:1em;"></textarea>
+    <button type="submit" style="margin-top:1em; padding:0.6em 1.2em; background-color:var(--accent); color:white; border:none; border-radius:8px; cursor:pointer;">Submit Review</button>
+  </form>
+</section>
+
+<section id="userReviews">
+  <h2>User Reviews</h2>
+  <ul id="reviewList" style="list-style-type: disc; padding-left: 1.5em;"></ul>
+</section>
+
+<footer>&copy; 2025 Brij Raj Pandey | All Rights Reserved</footer>
+
+<!-- Login Modal -->
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <h3>Login</h3>
+    <input type="text" id="username" placeholder="Enter name" />
+    <input type="password" id="password" placeholder="Enter password" />
+    <button onclick="login()">Login</button>
+    <div class="close-modal" onclick="hideLogin()">Cancel</div>
+  </div>
+</div>
+
+<script>
+  function toggleDark() {
+    document.body.classList.toggle("dark");
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll("section").forEach(section => observer.observe(section));
+
+  // Reviews
+  const reviewForm = document.getElementById("reviewForm");
+  const reviewText = document.getElementById("reviewText");
+  const reviewList = document.getElementById("reviewList");
+
+  function loadReviews() {
+    const reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+    reviewList.innerHTML = "";
+    reviews.forEach(r => {
+      const li = document.createElement("li");
+      li.innerHTML = `<strong>${r.user}:</strong> ${r.text}`;
+      reviewList.appendChild(li);
+    });
+  }
+
+  reviewForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const text = reviewText.value.trim();
+    const user = localStorage.getItem("loggedInUser");
+
+    if (!user) {
+      alert("You must be logged in to leave a review.");
+      return;
+    }
+
+    if (text) {
+      const reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+      reviews.push({ user, text });
+      localStorage.setItem("reviews", JSON.stringify(reviews));
+      reviewText.value = "";
+      loadReviews();
+    }
+  });
+
+  loadReviews();
+
+  // Login logic
+  function showLogin() {
+    document.getElementById("loginModal").style.display = "flex";
+  }
+
+  function hideLogin() {
+    document.getElementById("loginModal").style.display = "none";
+  }
+
+  function login() {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (username && password) {
+      localStorage.setItem("loggedInUser", username);
+      alert("Login successful! Welcome, " + username);
+      hideLogin();
+    } else {
+      alert("Please enter both name and password.");
+    }
+  }
+</script>
+
+</body>
+</html>
